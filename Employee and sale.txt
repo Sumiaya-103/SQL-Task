@@ -1,0 +1,78 @@
+📘 SQL Problem Set: Employee & Sales Management System (Task 1)
+Topics Covered
+Introduction to Databases & SQL
+Creating Databases and Tables
+Inserting, Updating, and Deleting Data
+SELECT Queries and Filtering (WHERE, ORDER BY, LIMIT)
+Aggregate Functions (COUNT, SUM, AVG, MIN, MAX)
+
+Step 1️⃣ – Create Database
+CREATE DATABASE CompanyDB;
+USE CompanyDB;
+
+Step 2️⃣ – Create Tables
+CREATE TABLE Employees (
+  emp_id INT PRIMARY KEY,
+  name VARCHAR(50),
+  department VARCHAR(50),
+  salary DECIMAL(10,2),
+  city VARCHAR(50),
+  join_year INT
+);
+
+CREATE TABLE Sales (
+  sale_id INT PRIMARY KEY,
+  emp_id INT,
+  product VARCHAR(50),
+  quantity INT,
+  price_per_unit DECIMAL(10,2)
+);
+
+Step 3️⃣ – Insert Sample Data
+INSERT INTO Employees VALUES
+(1, 'Alice', 'HR', 50000, 'Dhaka', 2019),
+(2, 'Bob', 'Sales', 65000, 'Chittagong', 2018),
+(3, 'Charlie', 'Sales', 62000, 'Dhaka', 2020),
+(4, 'Dina', 'IT', 70000, 'Sylhet', 2017),
+(5, 'Ehsan', 'HR', 48000, 'Khulna', 2021),
+(6, 'Fahim', 'IT', 72000, 'Dhaka', 2019);
+
+INSERT INTO Sales VALUES
+(101, 2, 'Laptop', 3, 75000),
+(102, 2, 'Mouse', 10, 800),
+(103, 3, 'Keyboard', 5, 1200),
+(104, 3, 'Monitor', 2, 15000),
+(105, 4, 'Server', 1, 250000),
+(106, 6, 'Router', 4, 9000),
+(107, 6, 'Cable', 10, 300),
+(108, 2, 'Tablet', 2, 35000),
+(109, 3, 'Mouse', 3, 800);
+🟢 Easy Level Problems
+Display all records from the Employees table.
+Show the names and cities of all employees.
+List all products sold in the Sales table.
+Find the employee(s) who joined in the year 2019.
+Show all employees whose salary is greater than 50,000.
+
+🟡 Medium Level Problems
+Display all employees who work in the “Sales” department and have a salary greater than 60,000.
+Show all products sold by employee ID 2 that cost more than 10,000 per unit.
+List the names of employees who joined after 2018, sorted by their joining year in ascending order.
+Retrieve the top 3 highest-paid employees.
+Display all sales where the total sale value (quantity × price_per_unit) is more than 50,000.
+Increase the salary of all employees in the “HR” department by 10%.
+Delete all sales records where the product is “Cable”.
+Find the total number of employees from the city “Dhaka”.
+Count how many distinct products have been sold overall.
+Show the lowest and highest salary in the company.
+
+🔵 Difficult Level Problems
+Display the employee(s) who have made at least one sale of a product priced above 20,000.
+Find the total sales amount made by employee ID 3. (Total = SUM(quantity × price_per_unit))
+Find the employee(s) who joined before 2020 and whose salary is below the average salary of all employees.
+Display the average salary of employees in Dhaka only if there are more than 2 employees from Dhaka.
+Show the name and city of the employee(s) who have the second highest salary.
+Find the total revenue (sum of all quantity × price_per_unit) from all sales where quantity is greater than 3.
+Update the price of all products named “Mouse” by increasing them 20%.
+Delete any employee whose city name starts with ‘S’.
+Display all employees whose name contains the letter ‘a’ (case-insensitive) and salary between 50,000 and 70,000.
