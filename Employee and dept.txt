@@ -1,0 +1,125 @@
+Topics Covered:
+👉 GROUP BY & HAVING
+👉 JOINS (INNER, LEFT, RIGHT, FULL)
+👉 Subqueries & Aliases
+
+
+🧱 Database Setup
+Use this script before starting the challenges 👇
+
+CREATE TABLE Departments (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(50)
+);
+
+CREATE TABLE Employees (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    dept_id INT,
+    salary DECIMAL(10,2),
+    hire_date DATE,
+    FOREIGN KEY (dept_id) REFERENCES Departments(dept_id)
+);
+
+CREATE TABLE Projects (
+    project_id INT PRIMARY KEY,
+    project_name VARCHAR(100),
+    dept_id INT,
+    budget DECIMAL(10,2),
+    FOREIGN KEY (dept_id) REFERENCES Departments(dept_id)
+);
+
+CREATE TABLE Employee_Projects (
+    emp_id INT,
+    project_id INT,
+    hours_worked INT,
+    FOREIGN KEY (emp_id) REFERENCES Employees(emp_id),
+    FOREIGN KEY (project_id) REFERENCES Projects(project_id)
+);
+
+INSERT INTO Departments VALUES
+(1, 'HR'),
+(2, 'Engineering'),
+(3, 'Marketing'),
+(4, 'Finance');
+
+INSERT INTO Employees VALUES
+(101, 'Alice', 1, 60000, '2020-01-15'),
+(102, 'Bob', 2, 80000, '2019-05-10'),
+(103, 'Charlie', 2, 75000, '2021-03-20'),
+(104, 'David', 3, 50000, '2022-11-05'),
+(105, 'Eve', 4, 90000, '2018-07-18');
+
+INSERT INTO Projects VALUES
+(201, 'Recruitment System', 1, 20000),
+(202, 'AI Platform', 2, 150000),
+(203, 'Ad Campaign', 3, 50000),
+(204, 'Accounting Revamp', 4, 80000);
+
+INSERT INTO Employee_Projects VALUES
+(101, 201, 120),
+(102, 202, 200),
+(103, 202, 180),
+(104, 203, 90),
+(105, 204, 220);
+ 
+🟢 EASY SQL CHALLENGES (5)
+1️⃣ List all employees along with their department names.
+
+2️⃣ Show the total number of employees in each department.
+
+3️⃣ Find the average salary for each department.
+
+4️⃣ Display all departments having more than 1 employee.
+
+5️⃣ Show all projects and their associated department names.
+🟡 MEDIUM SQL CHALLENGES (15)
+6️⃣ List employees who don’t belong to any project (use LEFT JOIN).
+
+7️⃣ Show total project hours worked by each employee.
+
+8️⃣ Find employees working in departments where average salary > 70000.
+
+9️⃣ List all departments with total salary expense > 100000.
+
+🔟 Display employees who earn more than the average salary of their department.
+
+1️⃣1️⃣ List all projects with department name and average hours worked by employees.
+
+1️⃣2️⃣ Show the highest-paid employee in each department.
+
+1️⃣3️⃣ Find all employees who joined before 2020 and work in Finance.
+
+1️⃣4️⃣ List all departments that have no projects assigned.
+
+1️⃣5️⃣ Display the total number of projects per department using GROUP BY.
+
+1️⃣6️⃣ Find departments where the average project budget exceeds 60000.
+
+1️⃣7️⃣ List employees and the number of projects they are assigned to.
+
+1️⃣8️⃣ Find employees who have worked more than 150 total hours across projects.
+
+1️⃣9️⃣ Show departments that have at least one project with budget < 50000.
+
+2️⃣0️⃣ Display all employees with their department name and total hours worked, even if they have no project.
+🔴 HARD SQL CHALLENGES (10)
+2️⃣1️⃣ Find employees whose salary is above their department’s average salary.
+
+2️⃣2️⃣ Show departments where every project has a budget greater than 40000.
+
+2️⃣3️⃣ Display the top 2 highest-paid employees per department.
+
+2️⃣4️⃣ Find the employee who worked the most hours on any project.
+
+2️⃣5️⃣ List departments whose total employee salary is greater than the total project budget.
+
+2️⃣6️⃣ Show the second highest salary in each department.
+
+2️⃣7️⃣ Find employees who have worked on all projects in their department.
+
+2️⃣8️⃣ Display the department(s) with the maximum number of projects.
+
+2️⃣9️⃣ Show the total number of employees who earn above the overall average salary (using subquery).
+
+3️⃣0️⃣ List employees who have never worked on a project whose budget is above 100000
